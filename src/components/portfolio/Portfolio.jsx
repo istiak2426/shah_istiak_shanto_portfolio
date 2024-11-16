@@ -14,8 +14,7 @@ const data = [
     images: IMG1,
     title: "StyleSense E-Commerce App",
     github: "https://github.com/istiak2426/stylesense.git",
-    demo:"https://stylesense.netlify.app"
-  },
+  },demo:"https://stylesensebd.vercel.app"
   {
     id:2,
     images: IMG2,
