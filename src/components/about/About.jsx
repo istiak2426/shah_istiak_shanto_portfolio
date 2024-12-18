@@ -36,7 +36,7 @@ const About = () => {
             <small>50+ Completed</small>
           </article>
         </div>
-
+{/*        <></>*/}
         <p>I am a self-taught MERN stack developer with a B.SC degree in Computer Science. 
           I’ve always found coding intuitive and have pushed myself to learn the most effective ways to achieve a result.
           

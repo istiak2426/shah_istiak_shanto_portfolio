@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\components"
   ],
-  "SelectedNode": "\\C:\\Users\\12234\\Desktop\\port",
+  "SelectedNode": "\\package.json",
   "PreviewInSolutionExplorer": false
 }
