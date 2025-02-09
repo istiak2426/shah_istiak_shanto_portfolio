@@ -51,7 +51,7 @@ const data = [
     images: IMG6,
     title: "Basic API with JWT Token",
     github: "https://github.com/istiak2426/API_with_JWT.git",
-    demo:"https://apiwithadmin.netlify.app/"
+    demo:"https://adminpanel2426.netlify.app/"
   }
 ]
 const Portfolio = () => {
