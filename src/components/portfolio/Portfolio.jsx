@@ -4,8 +4,7 @@ import IMG1 from '../../assets/style.PNG'
 import IMG2 from '../../assets/burger.PNG'
 import IMG3 from '../../assets/hotel.PNG'
 import IMG4 from '../../assets/photo.PNG'
-import IMG5 from '../../assets/health.PNG'
-import IMG6 from '../../assets/api2.PNG'
+
 import IMG7 from '../../assets/IMG7.jpg'
 import IMG8 from '../../assets/IMG8.jpg'
 
