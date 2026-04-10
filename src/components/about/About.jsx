@@ -21,7 +21,7 @@ const About = () => {
           <article className="about__card">
             <FaAward className="about__icon" />
             <h5>Experience</h5>
-            <small>3+ years Working</small>
+            <small>4+ years Working</small>
           </article>
 
           <article className="about__card">
@@ -36,11 +36,8 @@ const About = () => {
             <small>50+ Completed</small>
           </article>
         </div>
-{/*        <></>*/}
-        <p>I am a self-taught MERN stack developer with a B.SC degree in Computer Science. 
-          I’ve always found coding intuitive and have pushed myself to learn the most effective ways to achieve a result.
-          
-          </p>
+
+        <p>I am a self-taught full-stack developer with a B.Sc. in Computer Science, specializing in building scalable, high-performance applications with a focus on clean architecture and real-world problem solving.</p>
 
           <a href="#contact" className="btn btn-primary">Let's Talk</a>
       </div>

@@ -6,53 +6,67 @@ import IMG3 from '../../assets/hotel.PNG'
 import IMG4 from '../../assets/photo.PNG'
 import IMG5 from '../../assets/health.PNG'
 import IMG6 from '../../assets/api2.PNG'
+import IMG7 from '../../assets/IMG7.jpg'
+import IMG8 from '../../assets/IMG8.jpg'
 
 
 const data = [
   {
-    id:1,
+    id: 1,
+    images: IMG7,
+    title: "Zapito Zibon Blog Website",
+    github: "https://github.com/istiak2426/newssite.git",
+    demo: "https://zapitozibon.vercel.app/"
+  },
+  {
+    id: 2,
+    images: IMG8,
+    title: "RSAutomotive - Auto Parts E-Commerce Website",
+    github: "https://github.com/istiak2426/simple-ecommerce.git",
+    demo: "https://rsautomotive.vercel.app/"
+  },
+  {
+    id: 3,
     images: IMG1,
     title: "StyleSense E-Commerce App",
     github: "https://github.com/istiak2426/stylesense.git",
-    demo:"https://stylesensebd.vercel.app"
+    demo: "https://stylesensebd.vercel.app"
   },
   {
-    id:2,
+    id: 4,
     images: IMG2,
     title: "Burger Builder App",
     github: "https://github.com/istiak2426/burgerbuilder.git",
-    demo:"https://burgerbuilder2426.netlify.app"
+    demo: "https://burgerbuilder2426.netlify.app"
   },
   {
-    id:3,
+    id: 5,
     images: IMG3,
     title: "Hotel Booking App",
     github: "https://github.com/istiak2426/hotel_booking.git",
-    demo:"https://hotelbooking2426.netlify.app"
+    demo: "https://hotelbooking2426.netlify.app"
   },
   {
-    id:4,
+    id: 6,
     images: IMG4,
     title: "Photo Gallery App",
     github: "https://github.com/istiak2426/photogallery2426.git",
-    demo:"https://photogallery2426.herokuapp.com"
-
-    
+    demo: "https://photogallery2426.herokuapp.com"
   },
-  {
-    id:5,
-    images: IMG5,
-    title: " HealthOS B2B E-Commerce ",
-    github: "https://github.com/istiak2426/healthOS-Client.git",
-    demo:"https://healthos-final.netlify.app"
-  },
-  {
-    id:6,
-    images: IMG6,
-    title: "Basic API with JWT Token",
-    github: "https://github.com/istiak2426/API_with_JWT.git",
-    demo:"https://adminpanel2426.netlify.app/"
-  }
+  // {
+  //   id: 7,
+  //   images: IMG5,
+  //   title: "HealthOS B2B E-Commerce",
+  //   github: "https://github.com/istiak2426/healthOS-Client.git",
+  //   demo: "https://healthos-final.netlify.app"
+  // },
+  // {
+  //   id: 8,
+  //   images: IMG6,
+  //   title: "Basic API with JWT Token",
+  //   github: "https://github.com/istiak2426/API_with_JWT.git",
+  //   demo: "https://adminpanel2426.netlify.app/"
+  // }
 ]
 const Portfolio = () => {
   return (

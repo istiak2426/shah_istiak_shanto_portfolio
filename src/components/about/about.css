@@ -1,7 +1,7 @@
 .about__container {
 	display: grid;
-	grid-template-columns: 35% 50%;
-	gap: 15%;
+	grid-template-columns: 50% 45%;  /* increased from 35% to 50% */
+	gap: 5%;  /* reduced gap from 15% to 5% */
 
 }
 
@@ -23,7 +23,8 @@
 }
 
 .about__me img {
-	
+	width: 100%;
+	height: auto;
 	border-radius: 2rem;
 	overflow: hidden;
 	transform: rotate(10deg);
@@ -88,7 +89,7 @@
 		gap: 0;
 	}
 	.about__me{
-		width: 50%;
+		width: 70%;  /* increased from 60% to 70% */
 		margin: 2rem auto 4rem;
 	}
 
@@ -102,8 +103,7 @@
 @media screen and (max-width:600px) {
 
 	.about__me {
-
-		width: 65%;
+		width: 90%;  /* increased from 80% to 90% */
 		margin: 0 auto 3rem;
 	}
 
@@ -121,8 +121,3 @@
 		margin: 1.5rem 0;
 	}
 }
-  
-
-
-
-

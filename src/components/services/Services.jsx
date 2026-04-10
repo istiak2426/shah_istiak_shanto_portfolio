@@ -5,118 +5,103 @@ import { BiCheck } from "react-icons/bi";
 const Services = () => {
   return (
     <section id="services">
-      <h5>What I Offer</h5>
+      <h5>What I Can Do</h5>
       <h2>Services</h2>
 
       <div className="container services__container">
 
+        {/* Frontend */}
         <article className="service">
           <div className="service__head">
-            <h3>Front End Development</h3>
+            <h3>Frontend Development</h3>
           </div>
 
           <ul className="service__list">
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Determining the structure and design of web pages.
-              </p>
-            </li>
-            <li>
-              <BiCheck className="service__list-icon" />
-              <p>
-              Developing features to enhance the user experience.
-              </p>
-            </li>
-            <li>
-              <BiCheck className="service__list-icon" />
-              <p>
-              Striking a balance between functional and aesthetic design.
-              </p>
+              <p>Develop responsive and user-friendly web interfaces using React and modern JavaScript.</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Optimizing web pages for maximum speed and scalability.
-              </p>
+              <p>Convert UI/UX designs into clean, reusable, and maintainable components.</p>
             </li>
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Utilizing a variety of markup languages to write web pages.
-              </p>
+              <p>Ensure cross-browser compatibility and mobile responsiveness.</p>
             </li>
+
+            <li>
+              <BiCheck className="service__list-icon" />
+              <p>Optimize frontend performance for speed and better user experience.</p>
+            </li>
+
           </ul>
         </article>
-        {/* End of ui/ux */}
 
-  
+        {/* Backend (.NET Focus) */}
         <article className="service">
           <div className="service__head">
-            <h3>Backend End Development</h3>
+            <h3>Backend Development (.NET & Databases)</h3>
           </div>
 
           <ul className="service__list">
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Participate in the entire application lifecycle, focusing on coding and debugging.
-              </p>
+              <p>Build and maintain backend systems using C# and ASP.NET (Web Forms).</p>
             </li>
 
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Create sustainable and functional web applications with clean codes.
-              </p>
+              <p>Design and manage relational databases using SQL Server and MySQL.</p>
             </li>
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Learn about new technologies and stay up to date with current best practices.
-              </p>
+              <p>Create efficient database queries, stored procedures, and data models.</p>
             </li>
-   
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              In-depth understanding of the entire web development process (design, development and deployment)
-              </p>
+              <p>Develop backend logic for enterprise systems like HRIS and IT Help Desk.</p>
             </li>
+
           </ul>
         </article>
 
+        {/* Full Stack Support (MERN + Integration) */}
         <article className="service">
           <div className="service__head">
-            <h3>Client Support</h3>
+            <h3>Full Stack Development</h3>
           </div>
 
           <ul className="service__list">
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Identify client's needs and help client use specific features.
-              </p>
+              <p>Develop full-stack applications using MERN stack (React, Node.js, MongoDB).</p>
             </li>
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Analyzing and reporting product malfunctions.
-              </p>
+              <p>Integrate frontend with backend APIs for seamless data flow.</p>
             </li>
+
             <li>
               <BiCheck className="service__list-icon" />
-              <p>
-              Responding to client queries in a timely and accurate way, via phone, email or chat.
-              </p>
+              <p>Handle authentication, authorization, and basic security practices.</p>
             </li>
-      
-          
-   
+
+            <li>
+              <BiCheck className="service__list-icon" />
+              <p>Deploy and maintain web applications with real-world functionality.</p>
+            </li>
+
           </ul>
         </article>
-
 
       </div>
     </section>
