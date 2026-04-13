@@ -20,7 +20,7 @@
   );
   display: grid;
   place-items: center;
-  padding: 1rem; /* Added: Padding to contain the rotated image */
+
 }
 
 .about__me img {
