@@ -8,6 +8,8 @@ import IMG4 from '../../assets/photo.PNG'
 import IMG7 from '../../assets/IMG7.jpg'
 import IMG8 from '../../assets/IMG8.jpg'
 
+import doinik from '../../assets/doinik.jpg'
+
 
 const data = [
   {
