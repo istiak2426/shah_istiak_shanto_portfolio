@@ -15,9 +15,9 @@ const data = [
   {
     id: 1,
     images: IMG7,
-    title: "Zapito Zibon Blog Website",
+    title: "Doinik Ovimot Blog Website",
     github: "https://github.com/istiak2426/newssite.git",
-    demo: "https://zapitozibon.vercel.app/"
+    demo: "https://doinikobhimot.vercel.app/"
   },
   {
     id: 2,
