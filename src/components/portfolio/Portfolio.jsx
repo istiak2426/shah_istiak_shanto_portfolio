@@ -5,7 +5,7 @@ import IMG2 from '../../assets/burger.PNG'
 import IMG3 from '../../assets/hotel.PNG'
 import IMG4 from '../../assets/photo.PNG'
 
-import IMG7 from '../../assets/IMG7.jpg'
+
 import IMG8 from '../../assets/IMG8.jpg'
 
 import doinik from '../../assets/doinik.png'
@@ -14,7 +14,7 @@ import doinik from '../../assets/doinik.png'
 const data = [
   {
     id: 1,
-    images: IMG7,
+    images: doinik,
     title: "Doinik Ovimot Blog Website",
     github: "https://github.com/istiak2426/newssite.git",
     demo: "https://doinikobhimot.vercel.app/"
