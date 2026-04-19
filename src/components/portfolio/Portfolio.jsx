@@ -15,8 +15,8 @@ const data = [
   {
     id: 1,
     images: doinik,
-    title: "Doinik Ovimot Blog Website",
-    github: "https://github.com/istiak2426/newssite.git",
+    title: "Doinik Obhimot Blog Website",
+    github: "https://github.com/istiak2426/doinikovimot"
     demo: "https://doinikobhimot.vercel.app/"
   },
   {
