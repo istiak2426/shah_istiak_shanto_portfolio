@@ -52,7 +52,7 @@ const Experience = () => {
               <BsPatchCheckFill className="experience_details_icon" />
               <div>
                 <h4>Tailwind CSS</h4>
-                <small className="text-light">Basic</small>
+                <small className="text-light">Intermediate</small>
               </div>
             </article>
 
@@ -60,8 +60,8 @@ const Experience = () => {
 <article className="experience__details">
               <BsPatchCheckFill className="experience_details_icon" />
               <div>
-                <h4>NextJS</h4>
-                <small className="text-light">Basic</small>
+                <h4>Next JS</h4>
+                <small className="text-light">Intermediate</small>
               </div>
             </article>
           </div>
