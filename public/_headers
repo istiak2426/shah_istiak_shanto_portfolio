@@ -1,5 +1,5 @@
 /* 
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'self';
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://aiberry.ai https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://aiberry.ai; connect-src https://aiberry.ai; object-src 'none'; base-uri 'self'; frame-ancestors 'self';
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
