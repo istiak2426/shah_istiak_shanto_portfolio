@@ -5,12 +5,28 @@
   <meta charset="utf-8" />
   <link rel="icon" href="%PUBLIC_URL%/portfolio2.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Web site created using create-react-app" />
-  
-  <!-- Google AdSense Script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4990238729287088"
-     crossorigin="anonymous"></script>
-  
+
+  <!-- ✅ FIXED META DESCRIPTION -->
+  <meta name="description" content="Portfolio of Shah Istiak Shanto - .NET Developer, Problem Solver, and AI Enthusiast." />
+
+  <!-- ✅ CONTENT SECURITY POLICY (FIXED) -->
+  <meta http-equiv="Content-Security-Policy" 
+  content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://aiberry.ai https://pagead2.googlesyndication.com;
+    style-src 'self' 'unsafe-inline';
+    img-src 'self' data: https:;
+    font-src 'self' https://fonts.gstatic.com data:;
+    frame-src https://aiberry.ai;
+    connect-src https://aiberry.ai;
+  ">
+
+  <!-- ✅ Google AdSense -->
+  <script async 
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4990238729287088"
+    crossorigin="anonymous">
+  </script>
+
   <style>
     * {
       margin: 0;
@@ -25,7 +41,12 @@
   <div id="root"></div>
 
   <!-- ✅ Aiberry Chatbot -->
-  <script src="https://aiberry.ai/embed.js" data-id="7tw1ce2u"></script>
+  <script 
+    async 
+    src="https://aiberry.ai/embed.js" 
+    data-id="7tw1ce2u">
+  </script>
+
 </body>
 
 </html>
