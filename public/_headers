@@ -1,7 +1,16 @@
-/* 
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://aiberry.ai https://pagead2.googlesyndication.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://aiberry.ai; connect-src https://aiberry.ai; object-src 'none'; base-uri 'self'; frame-ancestors 'self';
-  X-Frame-Options: SAMEORIGIN
+/*
+  Content-Security-Policy: 
+    default-src 'self' https:;
+    script-src 'self' 'unsafe-inline' https://aiberry.ai https://pagead2.googlesyndication.com https://www.googletagmanager.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com data:;
+    img-src 'self' data: https:;
+    frame-src 'self' https://aiberry.ai https://googleads.g.doubleclick.net https://www.google.com;
+    connect-src 'self' https://aiberry.ai https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com;
+    object-src 'none';
+    base-uri 'self';
+    frame-ancestors 'self';
+
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), camera=(), microphone=()
 
