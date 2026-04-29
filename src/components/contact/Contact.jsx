@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { MdOutlineEmail } from 'react-icons/md';
 import { RiMessengerLine } from 'react-icons/ri';
 import { BsWhatsapp } from 'react-icons/bs';
@@ -10,39 +10,28 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [message, setMessage] = useState({ text: '', type: '' });
 
-  useEffect(() => {
-    // Initialize EmailJS with your public key
-    emailjs.init('8x41zdVbVzczGcclL');
-  }, []);
-
-  const sendEmail = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
-    setMessage({ text: '', type: '' });
 
-    try {
-      const result = await emailjs.sendForm(
-        'service_lopsga8',    // Your Service ID
-        'template_w43r2d2',   // Your Template ID
-        form.current,
-        '8x41zdVbVzczGcclL'   // Your Public Key
-      );
-
-      if (result.status === 200) {
-        setMessage({ text: '✅ Message sent successfully!', type: 'success' });
-        form.current.reset();
-      } else {
-        throw new Error(`Unexpected status: ${result.status}`);
-      }
-    } catch (error) {
-      console.error('EmailJS error:', error);
-      setMessage({
-        text: '❌ Failed to send message. Please try again or use direct contact options.',
-        type: 'error'
-      });
-    } finally {
+    emailjs.sendForm(
+      'service_lopsga8',
+      'template_w43r2d2',
+      form.current,
+      '8x41zdVbVzczGcclL'
+    )
+    .then((result) => {
+      console.log('SUCCESS:', result.text);
+      setMessage({ text: '✅ Message sent successfully!', type: 'success' });
+      form.current.reset();
+    })
+    .catch((error) => {
+      console.log('FAILED:', error);
+      setMessage({ text: '❌ Failed to send message.', type: 'error' });
+    })
+    .finally(() => {
       setIsSending(false);
-    }
+    });
   };
 
   return (
@@ -51,26 +40,24 @@ const Contact = () => {
       <h2>Contact Me</h2>
 
       <div className='container contact__container'>
+
         <div className="contact__options">
           <article className='contact__option'>
             <MdOutlineEmail className='contact__option-icon' />
             <h4>Email</h4>
             <h5>istiak2426@gmail.com</h5>
-            <a href='mailto:istiak2426@gmail.com' target="_blank" rel="noopener noreferrer">Send an e-mail</a>
           </article>
 
           <article className='contact__option'>
             <RiMessengerLine className='contact__option-icon' />
             <h4>Messenger</h4>
             <h5>istiak2426</h5>
-            <a href='https://m.me/istiak2426' target="_blank" rel="noopener noreferrer">Send a message</a>
           </article>
 
           <article className='contact__option'>
             <BsWhatsapp className='contact__option-icon' />
             <h4>WhatsApp</h4>
             <h5>+8801748008483</h5>
-            <a href="https://api.whatsapp.com/send?phone=8801748008483" target="_blank" rel="noopener noreferrer">Send a message</a>
           </article>
         </div>
 
@@ -85,10 +72,11 @@ const Contact = () => {
             </div>
           )}
 
-          <button type='submit' className='btn btn-primary' disabled={isSending}>
+          <button type='submit' disabled={isSending}>
             {isSending ? 'Sending...' : 'Send Message'}
           </button>
         </form>
+
       </div>
     </section>
   );
