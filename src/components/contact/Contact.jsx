@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { MdOutlineEmail } from 'react-icons/md';
 import { RiMessengerLine } from 'react-icons/ri';
 import { BsWhatsapp } from 'react-icons/bs';
@@ -10,8 +10,10 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [message, setMessage] = useState({ text: '', type: '' });
 
-  // Initialize EmailJS with your public key (optional but recommended)
-  // emailjs.init('8x41zdVbVzczGcclL'); // Uncomment if needed
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init('8x41zdVbVzczGcclL');
+  }, []);
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -20,23 +22,23 @@ const Contact = () => {
 
     try {
       const result = await emailjs.sendForm(
-        'service_lopsga8',    // Service ID
-        'template_w43r2d2',   // Template ID
+        'service_lopsga8',    // Your Service ID
+        'template_w43r2d2',   // Your Template ID
         form.current,
-        '8x41zdVbVzczGcclL'   // Public Key (User ID)
+        '8x41zdVbVzczGcclL'   // Your Public Key
       );
-      
+
       if (result.status === 200) {
         setMessage({ text: '✅ Message sent successfully!', type: 'success' });
-        form.current.reset(); // Reset only on success
+        form.current.reset();
       } else {
-        throw new Error('Failed to send');
+        throw new Error(`Unexpected status: ${result.status}`);
       }
     } catch (error) {
       console.error('EmailJS error:', error);
-      setMessage({ 
-        text: '❌ Failed to send message. Please try again or use direct contact options.', 
-        type: 'error' 
+      setMessage({
+        text: '❌ Failed to send message. Please try again or use direct contact options.',
+        type: 'error'
       });
     } finally {
       setIsSending(false);
@@ -76,18 +78,14 @@ const Contact = () => {
           <input type="text" name="user_name" placeholder='Your Full Name' required />
           <input type="email" name="user_email" placeholder='Your Email' required />
           <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
-          
+
           {message.text && (
             <div className={`form-message ${message.type}`}>
               {message.text}
             </div>
           )}
-          
-          <button 
-            type='submit' 
-            className='btn btn-primary'
-            disabled={isSending}
-          >
+
+          <button type='submit' className='btn btn-primary' disabled={isSending}>
             {isSending ? 'Sending...' : 'Send Message'}
           </button>
         </form>
