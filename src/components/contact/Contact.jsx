@@ -13,6 +13,7 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
+    setMessage({ text: '', type: '' });
 
     emailjs.sendForm(
       'service_lopsga8',
@@ -21,13 +22,22 @@ const Contact = () => {
       '8x41zdVbVzczGcclL'
     )
     .then((result) => {
-      console.log('SUCCESS:', result.text);
-      setMessage({ text: '✅ Message sent successfully!', type: 'success' });
+      console.log(result.text);
+
+      setMessage({
+        text: '✅ Message sent successfully!',
+        type: 'success'
+      });
+
       form.current.reset();
     })
     .catch((error) => {
-      console.log('FAILED:', error);
-      setMessage({ text: '❌ Failed to send message.', type: 'error' });
+      console.log(error);
+
+      setMessage({
+        text: '❌ Failed to send message. Try again.',
+        type: 'error'
+      });
     })
     .finally(() => {
       setIsSending(false);
@@ -62,9 +72,26 @@ const Contact = () => {
         </div>
 
         <form ref={form} onSubmit={sendEmail}>
-          <input type="text" name="user_name" placeholder='Your Full Name' required />
-          <input type="email" name="user_email" placeholder='Your Email' required />
-          <textarea name="message" rows="7" placeholder='Your Message' required></textarea>
+          <input
+            type="text"
+            name="user_name"
+            placeholder="Your Full Name"
+            required
+          />
+
+          <input
+            type="email"
+            name="user_email"
+            placeholder="Your Email"
+            required
+          />
+
+          <textarea
+            name="message"
+            rows="7"
+            placeholder="Your Message"
+            required
+          ></textarea>
 
           {message.text && (
             <div className={`form-message ${message.type}`}>
