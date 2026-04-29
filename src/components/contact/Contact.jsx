@@ -10,6 +10,11 @@ const Contact = () => {
   const [isSending, setIsSending] = useState(false);
   const [message, setMessage] = useState({ text: '', type: '' });
 
+  const showMessage = (text, type) => {
+    setMessage({ text, type });
+    setTimeout(() => setMessage({ text: '', type: '' }), 5000);
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
@@ -23,21 +28,12 @@ const Contact = () => {
     )
     .then((result) => {
       console.log(result.text);
-
-      setMessage({
-        text: '✅ Message sent successfully!',
-        type: 'success'
-      });
-
+      showMessage('✅ Message sent successfully!', 'success');
       form.current.reset();
     })
     .catch((error) => {
       console.log(error);
-
-      setMessage({
-        text: '❌ Failed to send message. Try again.',
-        type: 'error'
-      });
+      showMessage('❌ Failed to send message. Try again.', 'error');
     })
     .finally(() => {
       setIsSending(false);
@@ -50,24 +46,26 @@ const Contact = () => {
       <h2>Contact Me</h2>
 
       <div className='container contact__container'>
-
         <div className="contact__options">
           <article className='contact__option'>
             <MdOutlineEmail className='contact__option-icon' />
             <h4>Email</h4>
             <h5>istiak2426@gmail.com</h5>
+            <a href="mailto:istiak2426@gmail.com" target='_blank' rel='noreferrer'>Send a message</a>
           </article>
 
           <article className='contact__option'>
             <RiMessengerLine className='contact__option-icon' />
             <h4>Messenger</h4>
             <h5>istiak2426</h5>
+            <a href="https://m.me/istiak2426" target='_blank' rel='noreferrer'>Send a message</a>
           </article>
 
           <article className='contact__option'>
             <BsWhatsapp className='contact__option-icon' />
             <h4>WhatsApp</h4>
             <h5>+8801748008483</h5>
+            <a href="https://wa.me/8801748008483" target='_blank' rel='noreferrer'>Send a message</a>
           </article>
         </div>
 
@@ -78,14 +76,12 @@ const Contact = () => {
             placeholder="Your Full Name"
             required
           />
-
           <input
             type="email"
             name="user_email"
             placeholder="Your Email"
             required
           />
-
           <textarea
             name="message"
             rows="7"
@@ -99,11 +95,10 @@ const Contact = () => {
             </div>
           )}
 
-          <button type='submit' disabled={isSending}>
+          <button type='submit' className='btn btn-primary' disabled={isSending}>
             {isSending ? 'Sending...' : 'Send Message'}
           </button>
         </form>
-
       </div>
     </section>
   );
