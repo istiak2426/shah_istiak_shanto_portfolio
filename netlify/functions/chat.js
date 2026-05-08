@@ -2,8 +2,7 @@ const axios = require("axios");
 
 exports.handler = async (event) => {
   try {
-    const body = JSON.parse(event.body);
-    const userMessage = body.message;
+    const { message } = JSON.parse(event.body);
 
     const prompt = `
 You are Shah Istiak Shanto's AI portfolio assistant.
@@ -21,6 +20,9 @@ About him:
 - IT Help Desk System
 
 Answer professionally and briefly.
+
+User Question:
+${message}
 `;
 
     const response = await axios.post(
@@ -28,18 +30,25 @@ Answer professionally and briefly.
       {
         contents: [
           {
+            role: "user",
             parts: [
               {
-                text: `${prompt}\n\nUser: ${userMessage}`,
+                text: prompt,
               },
             ],
           },
         ],
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
     );
 
     const aiReply =
-      response.data.candidates[0].content.parts[0].text;
+      response.data.candidates?.[0]?.content?.parts?.[0]?.text ||
+      "No response from AI.";
 
     return {
       statusCode: 200,
@@ -48,7 +57,10 @@ Answer professionally and briefly.
       }),
     };
   } catch (error) {
-    console.error(error);
+    console.error(
+      "FULL ERROR:",
+      error.response?.data || error.message
+    );
 
     return {
       statusCode: 500,
