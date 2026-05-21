@@ -1,4 +1,4 @@
-const axios = require("axios");
+const { Groq } = require("groq-sdk");
 
 exports.handler = async (event) => {
   try {
@@ -25,48 +25,33 @@ User Question:
 ${message}
 `;
 
-    const response = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        contents: [
-          {
-            role: "user",
-            parts: [
-              {
-                text: prompt,
-              },
-            ],
-          },
-        ],
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    // Groq client initialize
+    const groq = new Groq({
+      apiKey: process.env.GROQ_API_KEY,
+    });
 
-    const aiReply =
-      response.data.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "No response from AI.";
+    const chatCompletion = await groq.chat.completions.create({
+      messages: [
+        {
+          role: "user",
+          content: prompt,
+        },
+      ],
+      model: "llama-3.3-70b-versatile", // free tier-এর জন্য দারুণ মডেল
+      temperature: 0.7,
+    });
+
+    const aiReply = chatCompletion.choices[0]?.message?.content || "No response from AI.";
 
     return {
       statusCode: 200,
-      body: JSON.stringify({
-        reply: aiReply,
-      }),
+      body: JSON.stringify({ reply: aiReply }),
     };
   } catch (error) {
-    console.error(
-      "FULL ERROR:",
-      error.response?.data || error.message
-    );
-
+    console.error("FULL ERROR:", error.message || error);
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        reply: "AI server error.",
-      }),
+      body: JSON.stringify({ reply: "AI server error." }),
     };
   }
 };
