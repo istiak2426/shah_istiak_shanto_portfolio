@@ -1,0 +1,191 @@
+/* Self-hosted fonts (same families as the CV). Google Fonts is blocked by the site's CSP. */
+@font-face {
+  font-family: 'Raleway';
+  src: url('./assets/fonts/raleway-var.woff2') format('woff2');
+  font-weight: 300 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('./assets/fonts/lato-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('./assets/fonts/lato-700.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('./assets/fonts/lato-900.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  /* Palette taken from the CV */
+  --color-bg: #ffffff;
+  --color-bg-variant: #f4f4f4;
+  --color-primary: #464a4e;
+  --color-primary-variant: rgba(70, 74, 78, 0.35);
+  --color-white: #2b2e32;
+  --color-light: #706f6f;
+
+  --font-heading: 'Raleway', 'Segoe UI', sans-serif;
+  --font-body: 'Lato', 'Segoe UI', sans-serif;
+
+  --transition: all 400ms ease;
+
+  --container-width-lg: 75%;
+  --container-width-md: 86%;
+  --container-width-sm: 90%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body{
+	font-family: var(--font-body);
+	background-color: var(--color-bg);
+	color: var(--color-white);
+	line-height: 1.7;
+}
+
+/* ======== general style ======*/
+.container {
+	width: var(--container-width-lg);
+	margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+	font-family: var(--font-heading);
+	font-weight: 600;
+}
+
+h1{
+	font-size:  2.5rem;
+}
+
+section{
+	margin-top: 8rem;
+
+
+}
+
+section > h2,
+section > h5 {
+	text-align: center;
+	color: var(--color-light);
+}
+
+section > h5 {
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	font-size: 0.8rem;
+	font-weight: 600;
+}
+
+/* Section titles copy the CV headings: heavy, upper-case, widely spaced */
+section > h2{
+	font-family: var(--font-body);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: 0.3em;
+	color: var(--color-primary);
+	margin-bottom: 3rem;
+}
+
+.text-light {
+	color: var(--color-light);
+}
+
+a{
+	color: var(--color-primary);
+	transition: var(--transition);
+}
+
+a:hover{
+
+	color: var(--color-white);
+}
+
+.btn{
+	width: max-content;
+	display: inline-block;
+	color: var(--color-primary);
+	padding: 0.75rem 1.2rem;
+	border-radius: 0.4rem;
+	cursor: pointer;
+	border: 1px solid var(--color-primary);
+	transition: var(--transition);
+}
+
+
+
+.btn:hover{
+	background: var(--color-white);
+	color: var(--color-bg);
+	border-color: transparent;
+}
+
+.btn-primary{
+	background: var(--color-primary);
+	color: var(--color-bg);
+}
+
+img{
+	display: block;
+	width: 100%;
+	object-fit: cover;
+
+}
+
+/* ====media queries medium device===== */
+
+@media screen and (max-width:1024px) {
+	.container{
+		width: var(--container-width-md);
+	}
+
+	section{
+		margin-top: 6rem ;
+	}
+}
+
+/* ====media queries small device===== */
+
+@media screen and (max-width:600px) {
+	.container{
+		width: var(--container-width-sm);
+	}
+
+	section > h2{
+		margin-bottom: 2rem ;
+	}
+}
+
+
+

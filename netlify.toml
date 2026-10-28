@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "netlify/functions"
+
+[build.environment]
+  # react-scripts 4 needs --openssl-legacy-provider, which requires Node 17+
+  NODE_VERSION = "18"
+  CI = "false"

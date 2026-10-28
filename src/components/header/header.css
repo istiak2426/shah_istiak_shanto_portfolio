@@ -1,0 +1,316 @@
+/* ========== HEADER SECTION - FIXED ========== */
+header {
+  min-height: 100vh;
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(var(--color-bg-variant) 0, var(--color-bg-variant) 58%, var(--color-bg) 58%);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__container {
+  text-align: center;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== HEADER CONTENT ========== */
+.header__content {
+  margin-bottom: 2rem;
+  z-index: 1;
+}
+
+.header__content h3 {
+  font-weight: 400;
+  margin: 0.5rem 0;
+}
+
+.header__content h1 {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.header__content h1 strong {
+  font-weight: 700;
+}
+
+/* sub-title copies the CV: small, bold, very widely spaced */
+.header__content h3.header__role {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+.text-light {
+  font-weight: 400;
+}
+
+/* ========== CTA BUTTONS ========== */
+.cta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.header__tagline {
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+}
+
+.cta a {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.cta a:first-child {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border: 1px solid transparent;
+}
+
+.cta a:first-child:hover {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.cta a:not(:first-child) {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.cta a:not(:first-child):hover {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  border-color: transparent;
+}
+
+/* ========== SOCIALS (LEFT SIDE) ========== */
+.header__socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  position: absolute;
+  left: 2rem;
+  bottom: 3rem;
+  z-index: 2;
+}
+
+.header__socials::after {
+  content: '';
+  width: 1px;
+  height: 2rem;
+  background: var(--color-primary);
+}
+
+.header__socials a {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.header__socials a:hover {
+  color: var(--color-primary);
+  transform: translateY(-3px);
+}
+
+/* ========== PROFILE IMAGE - CIRCLE (as in the CV) ========== */
+.me {
+  background: var(--color-bg);
+  width: 19rem;
+  height: 19rem;
+  position: relative;
+  margin: 2rem auto 0;
+  border-radius: 50%;
+  border: 0.6rem solid var(--color-bg);
+  box-shadow: 0 0.5rem 2rem rgba(70, 74, 78, 0.15);
+  overflow: hidden;
+  padding: 0;
+}
+
+.me img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ========== SCROLL DOWN (RIGHT SIDE) ========== */
+.scroll__down {
+  position: absolute;
+  right: -2.3rem;
+  bottom: 5rem;
+  transform: rotate(90deg);
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--color-white);
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.scroll__down:hover {
+  color: var(--color-primary);
+}
+
+/* ========== MEDIA QUERIES (TABLETS) ========== */
+@media screen and (max-width: 1024px) {
+  header {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  
+  .me {
+    width: 16rem;
+    height: 16rem;
+  }
+  
+  .header__socials {
+    left: 1rem;
+  }
+}
+
+/* ========== MEDIA QUERIES (MOBILE) ========== */
+@media screen and (max-width: 600px) {
+  header {
+    min-height: auto;
+    padding: 1.5rem 0 2rem;
+  }
+  
+  .header__container {
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+  
+  .header__content {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+  
+  .header__content h1 {
+    font-size: 1.8rem;
+  }
+
+  .header__content h3.header__role {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+  }
+  
+  .header__content h3 {
+    font-size: 1rem;
+  }
+  
+  .cta {
+    gap: 0.8rem;
+  }
+  
+  .cta a {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* HIDE SOCIALS ON MOBILE */
+  .header__socials {
+    display: none;
+  }
+  
+  /* HIDE SCROLL DOWN ON MOBILE */
+  .scroll__down {
+    display: none;
+  }
+  
+  /* RECTANGLE IMAGE ON MOBILE */
+  .me {
+    width: 13rem;
+    height: 13rem;
+    margin: 1rem auto 0;
+  }
+  
+  .me img {
+    object-position: top center;
+  }
+}
+
+/* ========== EXTRA SMALL DEVICES (below 400px) ========== */
+@media screen and (max-width: 400px) {
+  .header__content h1 {
+    font-size: 1.5rem;
+  }
+  
+  .me {
+    width: 14rem;
+    height: 20rem;
+  }
+  
+  .cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  
+  .cta a {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* ========== DESKTOP GAP FIX (removes huge empty space) ========== */
+@media screen and (min-width: 1024px) {
+  header {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+  
+  .me {
+    margin: 1rem auto 0;
+  }
+  
+  .header__content {
+    margin-bottom: 1rem;
+  }
+}
+
+/* ========== ANIMATIONS (Optional) ========== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header__content {
+  animation: fadeInUp 0.8s ease;
+}
+
+.me {
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.cta {
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
