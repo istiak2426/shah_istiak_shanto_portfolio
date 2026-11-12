@@ -1,12 +1,12 @@
 import React from "react";
-import SOC_CV from "../../assets/Shah_Istiak_Shanto_SOC_Analyst_CV.pdf";
+import SOC_CV from "../../assets/Shah_Istiak_Shanto.pdf";
 
 const CTA = () => {
   return (
     <div className="cta">
       <a
         href={SOC_CV}
-        download="Shah_Istiak_Shanto_SOC_Analyst_CV.pdf"
+        download="Shah_Istiak_Shanto.pdf"
         className="btn"
       >
         Download CV
