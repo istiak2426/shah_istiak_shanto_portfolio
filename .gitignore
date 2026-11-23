@@ -21,3 +21,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# editor / OS files
+.vs/
+.vscode/
+.idea/
+Thumbs.db
+
+# environment files and local Netlify state
+.env
+.env.*
+.netlify/

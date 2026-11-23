@@ -1,32 +1,28 @@
 import React from 'react'
+import { LanguageProvider } from "./context/LanguageContext"
+import Navbar from "./components/navbar/Navbar"
 import Header from "./components/header/Header"
-// import Nav from "./components/nav/Nav"
-import About from "./components/about/About"
-import Experience from "./components/experience/Experience"
-import Services from "./components/services/Services"
 import Portfolio from "./components/portfolio/Portfolio"
+import Career from "./components/career/Career"
+import Experience from "./components/experience/Experience"
 import Testimonials from "./components/testimonials/Testimonials"
+import About from "./components/about/About"
 import Contact from "./components/contact/Contact"
 import Footer from "./components/footer/Footer"
-import ChatBot from "./components/chatbot/ChatBot";
 
 const App = () => {
   return (
-    <>
-    <Header />
-          {/* <Nav /> */}
-
-          {/* hi there*/}
-    <About />
-    <Experience />
-    <Services />
-    <Portfolio />
-    <Testimonials />
-    <Contact />
-    <Footer />
-    <ChatBot />
-
-    </>
+    <LanguageProvider>
+      <Navbar />
+      <Header />
+      <Portfolio />
+      <Career />
+      <Experience />
+      <Testimonials />
+      <About />
+      <Contact />
+      <Footer />
+    </LanguageProvider>
   )
 }
 

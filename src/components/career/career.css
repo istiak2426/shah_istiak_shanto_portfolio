@@ -1,0 +1,139 @@
+.career__container {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.career__timeline,
+.career__box {
+  background: var(--color-surface);
+  padding: 2rem 2.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.career__timeline:hover,
+.career__box:hover {
+  border-color: var(--color-primary-variant);
+  box-shadow: var(--shadow-md);
+}
+
+.career__side {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.career__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--color-ink);
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.career__heading svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.career__job {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 1.5rem;
+}
+
+.career__job:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.career__job-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.35rem 1rem;
+}
+
+.career__job-head h4 {
+  font-size: 1.05rem;
+  color: var(--color-ink);
+}
+
+.career__job-head span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.career__job ul {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.career__job li {
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.92rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.career__job li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.career__edu h4 {
+  font-size: 1rem;
+  color: var(--color-ink);
+  margin-bottom: 0.25rem;
+}
+
+.career__edu p,
+.career__box > p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.career__edu small {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.career__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .career__container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .career__timeline,
+  .career__box {
+    padding: 1.5rem 1.25rem;
+  }
+}

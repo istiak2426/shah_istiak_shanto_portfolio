@@ -1,105 +1,144 @@
-import React from 'react'
-import './portfolio.css'
-import IMG1 from '../../assets/style.PNG'
-import IMG2 from '../../assets/burger.PNG'
-import IMG3 from '../../assets/hotel.PNG'
-import IMG4 from '../../assets/photo.PNG'
+import React, { useEffect, useState } from 'react';
+import { FiArrowUpRight, FiMaximize2, FiX } from 'react-icons/fi';
+import { useLanguage } from '../../context/LanguageContext';
+import './portfolio.css';
 
-
-import IMG8 from '../../assets/IMG8.jpg'
-
-import doinik from '../../assets/doinik.png'
-
-
-const data = [
-  {
-    id: 1,
-    images: doinik,
-    title: "Doinik Obhimot Blog Website",
-    github: "https://github.com/istiak2426/doinikovimot",
-    demo: "https://doinikobhimot.vercel.app/"
-  },
-  {
-    id: 2,
-    images: IMG8,
-    title: "RSAutomotive - Auto Parts E-Commerce Website",
-    github: "https://github.com/istiak2426/simple-ecommerce.git",
-    demo: "https://rsautomotive.vercel.app/"
-  },
-  {
-    id: 3,
-    images: IMG1,
-    title: "StyleSense E-Commerce App",
-    github: "https://github.com/istiak2426/stylesense.git",
-    demo: "https://stylesensebd.vercel.app"
-  },
-  {
-    id: 4,
-    images: IMG2,
-    title: "Burger Builder App",
-    github: "https://github.com/istiak2426/burgerbuilder.git",
-    demo: "https://burgerbuilder2426.netlify.app"
-  },
-  {
-    id: 5,
-    images: IMG3,
-    title: "Hotel Booking App",
-    github: "https://github.com/istiak2426/hotel_booking.git",
-    demo: "https://hotelbooking2426.netlify.app"
-  },
-  {
-    id: 6,
-    images: IMG4,
-    title: "Photo Gallery App",
-    github: "https://github.com/istiak2426/photogallery2426.git",
-    demo: "https://photogallery2426.herokuapp.com"
-  },
-  // {
-  //   id: 7,
-  //   images: IMG5,
-  //   title: "HealthOS B2B E-Commerce",
-  //   github: "https://github.com/istiak2426/healthOS-Client.git",
-  //   demo: "https://healthos-final.netlify.app"
-  // },
-  // {
-  //   id: 8,
-  //   images: IMG6,
-  //   title: "Basic API with JWT Token",
-  //   github: "https://github.com/istiak2426/API_with_JWT.git",
-  //   demo: "https://adminpanel2426.netlify.app/"
-  // }
-]
 const Portfolio = () => {
+  const { t } = useLanguage();
+  const [activeProjectId, setActiveProjectId] = useState(null);
+
+  const activeProject =
+    activeProjectId !== null
+      ? t.portfolio.items.find((item) => item.id === activeProjectId) || null
+      : null;
+
+  useEffect(() => {
+    if (activeProjectId === null) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setActiveProjectId(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeProjectId]);
+
   return (
-	<section id='portfolio'>
-    <h5>My Recent Work</h5>
-    <h2>Portfolio</h2>
+    <section id="portfolio">
+      <h5>{t.portfolio.eyebrow}</h5>
+      <h2>{t.portfolio.heading}</h2>
 
-    <div className='container portfolio__container'>
+      <div className="container portfolio__container">
+        {t.portfolio.items.map((project) => (
+          <article key={project.id} className="portfolio__item">
+            <button
+              type="button"
+              className="portfolio__item-image"
+              onClick={() => setActiveProjectId(project.id)}
+              aria-label={`${t.portfolio.preview}: ${project.title}`}
+            >
+              <img
+                src={project.images}
+                alt={project.title}
+                referrerPolicy="no-referrer"
+              />
+              <span className="portfolio__item-zoom" aria-hidden="true">
+                <FiMaximize2 />
+                <span>{t.portfolio.preview}</span>
+              </span>
+            </button>
 
-      {data.map((d)=>{
+            <p className="portfolio__item-meta">{project.category}</p>
+            <h3>{project.title}</h3>
+            <p className="portfolio__item-summary">{project.summary}</p>
 
-return (
-  <article className='portfolio__item'>
-        <div className="portfolio__item-image">
-          <img src={d.images} alt="" />
+            <div className="portfolio__item-cta">
+              <a
+                href={project.demo}
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t.portfolio.liveDemo} <FiArrowUpRight aria-hidden="true" />
+              </a>
+              {project.github && (
+                <a
+                  href={project.github}
+                  className="btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.portfolio.github}
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {activeProject && (
+        <div
+          className="portfolio__lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeProject.title}
+          onClick={() => setActiveProjectId(null)}
+        >
+          <div
+            className="portfolio__lightbox-panel"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="portfolio__lightbox-head">
+              <div>
+                <p className="portfolio__item-meta">{activeProject.category}</p>
+                <h3>{activeProject.title}</h3>
+              </div>
+              <button
+                type="button"
+                className="portfolio__lightbox-close"
+                onClick={() => setActiveProjectId(null)}
+                aria-label={t.portfolio.closePreview}
+              >
+                <FiX />
+              </button>
+            </div>
+
+            <div className="portfolio__lightbox-media">
+              <img
+                src={activeProject.images}
+                alt={activeProject.title}
+                referrerPolicy="no-referrer"
+              />
+            </div>
+
+            <div className="portfolio__lightbox-foot">
+              <p className="portfolio__item-summary">{activeProject.summary}</p>
+              <div className="portfolio__item-cta">
+                <a
+                  href={activeProject.demo}
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {t.portfolio.liveDemo} <FiArrowUpRight aria-hidden="true" />
+                </a>
+                {activeProject.github && (
+                  <a
+                    href={activeProject.github}
+                    className="btn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.portfolio.github}
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-        <h3>{d.title}</h3>
-        <div className="portfolio__item-cta">
-        <a href={d.github} className='btn' target='_blank' rel="noopener noreferrer">Github</a>
-        <a href={d.demo} className='btn btn-primary' target='_blank' rel="noopener noreferrer">Live Demo</a>
-        </div>
-      </article>
-
-)
-      })}
-      
-
-      
-      
-    </div>
+      )}
     </section>
-  )
-}
+  );
+};
 
-export default Portfolio
+export default Portfolio;

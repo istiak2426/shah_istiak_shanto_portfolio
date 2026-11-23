@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./ChatBot.css";
 
 const ChatBot = () => {
@@ -12,13 +12,21 @@ const ChatBot = () => {
 
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const bodyRef = useRef(null);
+
+  // keep the newest message in view
+  useEffect(() => {
+    if (bodyRef.current) {
+      bodyRef.current.scrollTop = bodyRef.current.scrollHeight;
+    }
+  }, [messages, loading, isOpen]);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
   };
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || loading) return;
 
     const userMessage = {
       sender: "user",
@@ -41,6 +49,10 @@ const ChatBot = () => {
           message: userInput,
         }),
       });
+
+      if (!response.ok) {
+        throw new Error(`Chat request failed (${response.status})`);
+      }
 
       const data = await response.json();
 
@@ -74,7 +86,7 @@ const ChatBot = () => {
   return (
     <>
       {/* Floating Button */}
-      <button className="chat-toggle-btn" onClick={toggleChat}>
+      <button className="chat-toggle-btn" onClick={toggleChat} aria-label="Toggle chat assistant">
         💬
       </button>
 
@@ -83,10 +95,10 @@ const ChatBot = () => {
         <div className="chat-container">
           <div className="chat-header">
             <h3>AI Portfolio Assistant</h3>
-            <button onClick={toggleChat}>✖</button>
+            <button onClick={toggleChat} aria-label="Close chat">✖</button>
           </div>
 
-          <div className="chat-body">
+          <div className="chat-body" ref={bodyRef}>
             {messages.map((msg, index) => (
               <div
                 key={index}
@@ -111,10 +123,11 @@ const ChatBot = () => {
               placeholder="Ask something..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              maxLength={500}
               onKeyDown={handleKeyDown}
             />
 
-            <button onClick={sendMessage}>Send</button>
+            <button onClick={sendMessage} disabled={loading}>Send</button>
           </div>
         </div>
       )}
