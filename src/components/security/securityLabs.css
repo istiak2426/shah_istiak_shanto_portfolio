@@ -1,0 +1,225 @@
+.sec-labs__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sec-labs__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  max-width: 62ch;
+}
+
+.sec-labs__note svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.sec-labs__filters {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.6rem;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+}
+
+.sec-labs__filter-btn {
+  padding: 0.42rem 0.85rem;
+  border-radius: 0.42rem;
+  font-family: var(--font-body);
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--color-muted);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.sec-labs__filter-btn:hover {
+  color: var(--color-ink);
+}
+
+.sec-labs__filter-btn.is-active {
+  background: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: 0 1px 2px rgba(37, 43, 48, 0.08);
+}
+
+.sec-labs__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.sec-labs__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  padding: 1.65rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.sec-labs__card:hover {
+  border-color: var(--color-primary-variant);
+  box-shadow: var(--shadow-md);
+}
+
+.sec-labs__card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.sec-labs__index {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.sec-labs__meta {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.sec-labs__card h3 {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: var(--color-ink);
+  margin-bottom: 0.55rem;
+}
+
+.sec-labs__desc {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.sec-labs__details {
+  margin-top: 1.15rem;
+  padding-top: 1.05rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sec-labs__detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.sec-labs__detail-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.sec-labs__detail-row p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-ink);
+}
+
+.sec-labs__card-foot {
+  margin-top: auto;
+  padding-top: 1.1rem;
+}
+
+.sec-labs__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.sec-labs__toggle:hover {
+  color: var(--color-accent-hover);
+}
+
+.sec-labs__summary-bar {
+  margin-top: 1.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  padding: 1.35rem 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+}
+
+.sec-labs__readiness {
+  flex: 1 1 320px;
+}
+
+.sec-labs__readiness p {
+  margin-top: 0.2rem;
+  font-size: 0.92rem;
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.sec-labs__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media screen and (max-width: 900px) {
+  .sec-labs__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sec-labs__card,
+  .sec-labs__summary-bar {
+    padding: 1.25rem;
+  }
+
+  .sec-labs__filters {
+    width: 100%;
+  }
+
+  .sec-labs__filter-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .sec-labs__actions,
+  .sec-labs__actions .btn {
+    width: 100%;
+  }
+}

@@ -97,6 +97,18 @@
   background: var(--color-accent);
 }
 
+.career__edu {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.career__edu:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
 .career__edu h4 {
   font-size: 1rem;
   color: var(--color-ink);

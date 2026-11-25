@@ -1,8 +1,9 @@
 import React from "react";
 import "./career.css";
 import { BsBriefcaseFill, BsFillBookFill, BsLightningChargeFill } from "react-icons/bs";
-import CV from "../../assets/Shah_Istiak_Shanto.pdf";
 import { useLanguage } from "../../context/LanguageContext";
+
+const CV_PATH = "/assets/aistudio/Shah_Istiak_Shanto_8ec15529.pdf";
 
 const Career = () => {
   const { t } = useLanguage();
@@ -40,11 +41,13 @@ const Career = () => {
             <h3 className="career__heading">
               <BsFillBookFill aria-hidden="true" /> {t.career.educationHeading}
             </h3>
-            <article className="career__edu">
-              <h4>{t.career.degreeTitle}</h4>
-              <p className="text-light">{t.career.degreeSchool}</p>
-              <small>{t.career.degreePeriod}</small>
-            </article>
+            {t.career.educationList.map((edu) => (
+              <article className="career__edu" key={edu.title}>
+                <h4>{edu.title}</h4>
+                <p className="text-light">{edu.school}</p>
+                <small>{edu.period}</small>
+              </article>
+            ))}
           </div>
 
           <div className="career__box">
@@ -53,7 +56,7 @@ const Career = () => {
             </h3>
             <p className="text-light">{t.career.quickNote}</p>
             <div className="career__actions">
-              <a href={CV} download="Shah_Istiak_Shanto.pdf" className="btn btn-primary">
+              <a href={CV_PATH} download="Shah_Istiak_Shanto.pdf" className="btn btn-primary">
                 {t.career.downloadCv}
               </a>
               <a href="#contact" className="btn">

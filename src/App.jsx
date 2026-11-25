@@ -2,6 +2,8 @@ import React from 'react'
 import { LanguageProvider } from "./context/LanguageContext"
 import Navbar from "./components/navbar/Navbar"
 import Header from "./components/header/Header"
+import RecruiterBrief from "./components/recruiter/RecruiterBrief"
+import SecurityLabs from "./components/security/SecurityLabs"
 import Portfolio from "./components/portfolio/Portfolio"
 import Career from "./components/career/Career"
 import Experience from "./components/experience/Experience"
@@ -15,9 +17,11 @@ const App = () => {
     <LanguageProvider>
       <Navbar />
       <Header />
+      <RecruiterBrief />
+      <SecurityLabs />
+      <Experience />
       <Portfolio />
       <Career />
-      <Experience />
       <Testimonials />
       <About />
       <Contact />

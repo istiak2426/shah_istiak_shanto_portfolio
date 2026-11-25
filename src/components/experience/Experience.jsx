@@ -12,33 +12,17 @@ const Experience = () => {
       <h2>{t.experience.heading}</h2>
 
       <div className="container experience__container">
-        <div className="experience__frontend">
-          <h2>{t.experience.frontendTitle}</h2>
-          <div className="experience__content">
-            {t.experience.frontendStack.map((tech) => (
-              <article className="experience__details" key={tech}>
-                <BsPatchCheckFill className="experience_details_icon" aria-hidden="true" />
-                <div>
-                  <h4>{tech}</h4>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <div className="experience__backend">
-          <h2>{t.experience.backendTitle}</h2>
-          <div className="experience__content">
-            {t.experience.backendStack.map((tech) => (
-              <article className="experience__details" key={tech}>
-                <BsPatchCheckFill className="experience_details_icon" aria-hidden="true" />
-                <div>
-                  <h4>{tech}</h4>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+        {t.experience.groups.map((group) => (
+          <article className="experience__card" key={group.title}>
+            <div className="experience__card-head">
+              <BsPatchCheckFill className="experience_details_icon" aria-hidden="true" />
+              <h3>
+                <span className="experience__card-index">{group.index}</span> {group.title}
+              </h3>
+            </div>
+            <p className="experience__card-items">{group.items}</p>
+          </article>
+        ))}
       </div>
     </section>
   );

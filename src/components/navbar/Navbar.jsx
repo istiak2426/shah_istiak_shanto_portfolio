@@ -13,10 +13,10 @@ const Navbar = () => {
         </a>
 
         <div className="topbar__links">
+          <a href="#security-labs">{t.nav.labs}</a>
+          <a href="#experience">{t.nav.stack}</a>
           <a href="#portfolio">{t.nav.projects}</a>
           <a href="#career">{t.nav.experience}</a>
-          <a href="#experience">{t.nav.stack}</a>
-          <a href="#testimonials">{t.nav.reviews}</a>
           <a href="#about">{t.nav.about}</a>
         </div>
 

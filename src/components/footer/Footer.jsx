@@ -18,9 +18,10 @@ const Footer = () => {
 
       <ul className='permalinks'>
         <li><a href='#top'>{t.footer.home}</a></li>
+        <li><a href='#security-labs'>{t.footer.labs}</a></li>
+        <li><a href='#experience'>{t.footer.stack}</a></li>
         <li><a href='#portfolio'>{t.footer.projects}</a></li>
         <li><a href='#career'>{t.footer.experience}</a></li>
-        <li><a href='#experience'>{t.footer.stack}</a></li>
         <li><a href='#testimonials'>{t.footer.testimonials}</a></li>
         <li><a href='#about'>{t.footer.about}</a></li>
         <li><a href='#contact'>{t.footer.contact}</a></li>

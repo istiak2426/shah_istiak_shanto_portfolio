@@ -1,12 +1,11 @@
 import React from "react";
 import ME from "../../assets/about_me_3.jpg";
-import { FaAward } from "react-icons/fa";
-import { FiUsers } from "react-icons/fi";
+import { FiShield, FiUsers } from "react-icons/fi";
 import { VscFolderLibrary } from "react-icons/vsc";
 import { useLanguage } from "../../context/LanguageContext";
 import './about.css'
 
-const icons = [FaAward, FiUsers, VscFolderLibrary];
+const icons = [FiShield, VscFolderLibrary, FiUsers];
 
 const About = () => {
   const { t } = useLanguage();
@@ -24,7 +23,7 @@ const About = () => {
         <div className="about__content">
           <div className="about__cards">
             {t.about.cards.map((card, index) => {
-              const Icon = icons[index] || FaAward;
+              const Icon = icons[index] || FiShield;
               return (
                 <article className="about__card" key={card.title}>
                   <Icon className="about__icon" aria-hidden="true" />
